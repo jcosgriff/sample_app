@@ -1,7 +1,22 @@
 SampleApp::Application.routes.draw do
-  get "static_pages/home"
-  get "static_pages/help"
-  get "static_pages/about"
+  
+  get "users/new"
+
+  root to: 'static_pages#home'
+
+  match '/help',      to: 'static_pages#help'
+  match '/about',     to: 'static_pages#about'
+  match '/contact',   to: 'static_pages#contact'
+  match '/signup',    to: 'users#new'
+
+  # using 'match' also creates named routes for use in controllers and views. For example, the above code creates the variable 'about_path' 
+  # that is equal to '/about' and the about_url that is equal to 'http://localhost:3000/about'.
+
+
+
+
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
